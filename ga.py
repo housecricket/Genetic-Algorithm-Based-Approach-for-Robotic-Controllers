@@ -91,7 +91,7 @@ class GA():
         for populationIndex in range(population.size()):
             parent1 = population.getFittest(populationIndex)
             # Apply crossover to this individual?
-            if (self.crossoverRate > random.random()) & (populationIndex >= self.elitismCount):
+            if (self.crossoverRate > random.random()) and (populationIndex >= self.elitismCount):
                 # Initialize offspring
                 offspring = Individual(parent1.getChromosomeLength())
 

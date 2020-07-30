@@ -1,10 +1,10 @@
 import random
 class Individual:
 
-    ''' Initializes individual with specific chromosome '''
-    def __init__(self, chromosome):
-        self.fitness = -1
-        self.chromosome = chromosome
+    # Initializes individual with specific chromosome
+    # def __init__(self, chromosome):
+    #     self.fitness = -1
+    #     self.chromosome = chromosome
 
     ''' Initializes random individual '''
     def __init__(self, chromosomeLength):

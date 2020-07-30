@@ -72,9 +72,10 @@ class Robot:
                 self.yPosition = currentY
 
             else:
-                if (currentX != self.xPosition | currentY != self.yPosition):
+                if (currentX != self.xPosition or currentY != self.yPosition):
                     self.route.append(self.getPosition())
-        elif self.getNextAction == 2:
+
+        elif self.getNextAction() == 2:
             if 0 == self.heading:
                 self.heading = 1
             elif 1 == self.heading:
@@ -84,7 +85,7 @@ class Robot:
             elif 3 == self.heading:
                 self.heading = 0
         
-        elif self.getNextAction == 3:
+        elif self.getNextAction() == 3:
             if 0 == self.heading:
                 self.heading = 3
             elif 1 == self.heading:
@@ -172,7 +173,7 @@ class Robot:
                 sensorAction += 1
             # Add to sensor-action map
             sensorActions[sensorValue] = sensorAction
-
+        
         return sensorActions
 
     ''' Get robot's position '''

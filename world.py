@@ -24,7 +24,7 @@ class World(object):
 
     # Gets value for position of maze
     def getPositionValue(self, x, y):
-        if (x < 0 | y < 0 | x >= len(self.world) | y >= len(self.world[0])):
+        if (x < 0 or y < 0 or x >= len(self.world) or y >= len(self.world[0])):
             return 1
         return self.world[y][x]
 
@@ -46,7 +46,7 @@ class World(object):
     # Gets maximum index of x position
     def getMaxX(self):
         return len(self.world[0])-1
-    
+
     # Gets maximum index of y position
     def getMaxY(self):
         return len(self.world)-1
@@ -54,14 +54,14 @@ class World(object):
     # Scores a maze route
     def scoreRoute(self, route):
         score = 0
-        visited = [ [False]* (self.getMaxX()+1) for i in range(self.getMaxY()+1)]
-
+        visited = [[False] * (self.getMaxY()+1)
+                   for i in range(self.getMaxX()+1)]
         # Loop over route and score each move
         for routeStep in route:
             step = routeStep
-            if (self.world[step[1]][step[0]] == 3 & visited[step[1]][step[0]] == False):
+            if (self.world[step[1]][step[0]] == 3 and visited[step[1]][step[0]] == False):
                 # Increase score for correct move
                 score += 1
                 # Remove reward
-                visited[step[1]][step[0]] = true
+                visited[step[1]][step[0]] = True
         return score
